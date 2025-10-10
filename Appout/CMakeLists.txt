@@ -36,13 +36,16 @@ add_library(Appout STATIC
 	"src/Trampoline.cpp"
 	)
 	
-target_include_directories(Appout PUBLIC "include")
+target_include_directories(Appout PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 
 CPMAddPackage("gh:rotweaver/mhde#master")
 target_link_libraries(Appout PUBLIC mhde_lib)
 
-if (mhde_ADDED)
+if (mhde_ADDED STREQUAL YES)
     target_include_directories(Appout PUBLIC ${mhde_SOURCE_DIR}/include)
-    message("MHDE ADDED!")
+    message(STATUS "MHDE ADDED!")
+else
+	message(FATAL_ERROR "mhde is a required dependency for Appout)
 endif()
+

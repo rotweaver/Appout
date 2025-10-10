@@ -22,7 +22,7 @@ if (NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
 endif ()
 set(CMAKE_SIZEOF_VOID_P 4)
 
-add_library(${PROJECT_NAME} SHARED 
+add_library(${PROJECT_NAME} STATIC 
 	"src/Assembler/AssemblerBase.cpp"
 	"src/Assembler/x86Assembler.cpp"
 	"src/MemoryPool/MemoryBlock.cpp"

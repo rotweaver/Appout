@@ -22,7 +22,7 @@ if (NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
 endif ()
 set(CMAKE_SIZEOF_VOID_P 4)
 
-add_library(${PROJECT_NAME} STATIC 
+add_library(Appout STATIC 
 	"src/Assembler/AssemblerBase.cpp"
 	"src/Assembler/x86Assembler.cpp"
 	"src/MemoryPool/MemoryBlock.cpp"
@@ -36,13 +36,13 @@ add_library(${PROJECT_NAME} STATIC
 	"src/Trampoline.cpp"
 	)
 	
-target_include_directories(${PROJECT_NAME} PUBLIC "include")
+target_include_directories(Appout PUBLIC "include")
 
 
 CPMAddPackage("gh:rotweaver/mhde#master")
-target_link_libraries(${PROJECT_NAME} PUBLIC mhde_lib)
+target_link_libraries(Appout PUBLIC mhde_lib)
 
 if (mhde_ADDED)
-    target_include_directories(${PROJECT_NAME} PUBLIC ${mhde_SOURCE_DIR}/include)
+    target_include_directories(Appout PUBLIC ${mhde_SOURCE_DIR}/include)
     message("MHDE ADDED!")
 endif()

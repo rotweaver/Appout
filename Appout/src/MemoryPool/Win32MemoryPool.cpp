@@ -1,5 +1,7 @@
 #include <Appout/MemoryPool/Win32MemoryPool.hpp>
 
+#if defined(APPOUT_WIN32)
+
 #include <Windows.h>
 
 #include <assert.h>
@@ -41,3 +43,5 @@ void Win32MemoryPool::AllocateBlock()
 	m_memoryBlocks.push_back(MemoryBlock(block, m_defaultAllocationSize));
 	m_currentBlock++;
 }
+
+#endif

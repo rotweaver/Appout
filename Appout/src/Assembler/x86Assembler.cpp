@@ -4,7 +4,7 @@ using namespace Appout;
 
 void x86Assembler::nop()
 {
-	
+	m_memoryPool.CurrentBlock().Write((uint8_t)0x90);
 }
 
 /// <summary>

@@ -1,8 +1,8 @@
-#include <Steel/Appout/HookData.hpp>
+#include <Appout/HookData.hpp>
 
-#include <Steel/Appout/Process.hpp>
-#include <Steel/Appout/Trampoline.hpp>
-#include <Steel/Appout/HookManager.hpp>
+#include <Appout/Process.hpp>
+#include <Appout/Trampoline.hpp>
+#include <Appout/HookManager.hpp>
 
 #include <cstring>
 

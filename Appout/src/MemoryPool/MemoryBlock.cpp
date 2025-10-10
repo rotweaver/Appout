@@ -1,4 +1,4 @@
-#include <Steel/Appout/MemoryPool/MemoryBlock.hpp>
+#include <Appout/MemoryPool/MemoryBlock.hpp>
 
 using namespace Appout;
 
@@ -39,12 +39,12 @@ void MemoryBlock::Transfer(MemoryBlock& dst, size_t size)
 	dst.m_freeSpace -= size;
 }
 
-void MemoryBlock::Write(std::uint8_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::int8_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::uint16_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::int8_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::uint32_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::int32_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::uint64_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(std::int64_t value) { WritePrimitive(value); }
-void MemoryBlock::Write(float value) { WritePrimitive(value); }
+void MemoryBlock::Write(std::uint8_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::int8_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::uint16_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::int16_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::uint32_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::int32_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::uint64_t value) { writePrimitive(value); }
+void MemoryBlock::Write(std::int64_t value) { writePrimitive(value); }
+void MemoryBlock::Write(float value) { writePrimitive(value); }

@@ -10,7 +10,7 @@ namespace Appout
 	{
 	private:
 		template<typename T>
-		void WritePrimitive(T value);
+		void writePrimitive(T value);
 
 		uintptr_t m_baseAddress;
 		uintptr_t m_stackPointer;
@@ -30,7 +30,7 @@ namespace Appout
 		void Write(std::uint8_t value);
 		void Write(std::int8_t value);
 		void Write(std::uint16_t value);
-		void Write(std::int8_t value);
+		void Write(std::int16_t value);
 		void Write(std::uint32_t value);
 		void Write(std::int32_t value);
 		void Write(std::uint64_t value);
@@ -43,7 +43,7 @@ namespace Appout
 
 
 template<typename T>
-void Appout::MemoryBlock::WritePrimitive(T value)
+void Appout::MemoryBlock::writePrimitive(T value)
 {
 	if (sizeof(value) > m_freeSpace)
 	{
@@ -52,7 +52,7 @@ void Appout::MemoryBlock::WritePrimitive(T value)
 
 	// maybe look into intrinsics later? depending on speed
 
-	std::memcpy(m_stackPointer, &value, sizeof(value));
+	std::memcpy(reinterpret_cast<void*>(m_stackPointer), &value, sizeof(value));
 
 	m_stackPointer += sizeof(value);
 	m_freeSpace -= sizeof(value);

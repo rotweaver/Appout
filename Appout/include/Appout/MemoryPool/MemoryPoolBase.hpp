@@ -34,8 +34,8 @@ namespace Appout
 			Iterator operator++(int);
 
 
-			friend bool operator==(const Iterator& lhs, const Iterator& rhs) { lhs.m_pointer == rhs.m_pointer; }
-			friend bool operator!=(const Iterator& lhs, const Iterator& rhs) { lhs.m_pointer != rhs.m_pointer; }
+			friend bool operator==(const Iterator& lhs, const Iterator& rhs) { return lhs.m_pointer == rhs.m_pointer; }
+			friend bool operator!=(const Iterator& lhs, const Iterator& rhs) { return lhs.m_pointer != rhs.m_pointer; }
 		private:
 			pointer m_pointer = nullptr;
 		};

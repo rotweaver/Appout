@@ -1,6 +1,6 @@
-#include <Steel/Appout/Trampoline.hpp>
-#include <Steel/Appout/Process.hpp>
-#include <Steel/Appout/OpCode.hpp>
+#include <Appout/Trampoline.hpp>
+#include <Appout/Process.hpp>
+#include <Appout/OpCode.hpp>
 
 #include <Windows.h>
 #include <mhde32.hpp>

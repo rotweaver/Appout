@@ -1,4 +1,4 @@
-#include <Steel/Appout/Assembler/AssemblerBase.hpp>
+#include <Appout/Assembler/AssemblerBase.hpp>
 
 using namespace Appout;
 
@@ -34,13 +34,3 @@ AssemblerBase::AssemblerBase(MemoryPoolBase& memoryPool) : m_memoryPool(memoryPo
 {
 
 }
-
-void AssemblerBase::Write(std::uint8_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::int8_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::uint16_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::int8_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::uint32_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::int32_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::uint64_t value) { writePrimitive(value); }
-void AssemblerBase::Write(std::int64_t value) { writePrimitive(value); }
-void AssemblerBase::Write(float value) { writePrimitive(value); }

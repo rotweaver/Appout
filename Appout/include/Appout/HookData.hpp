@@ -8,8 +8,8 @@
 #include <cstdint>
 #include <array>
 
-#include <Steel/Appout/Process.hpp>
-#include <Steel/Appout/HookManager.hpp>
+#include <Appout/Process.hpp>
+#include <Appout/HookManager.hpp>
 
 #include <cstring>
 

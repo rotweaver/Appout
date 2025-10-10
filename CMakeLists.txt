@@ -46,6 +46,6 @@ if (mhde_ADDED STREQUAL YES)
     target_include_directories(Appout PUBLIC ${mhde_SOURCE_DIR}/include)
     message(STATUS "MHDE ADDED!")
 else
-	message(FATAL_ERROR "mhde is a required dependency for Appout)
+	message(FATAL_ERROR "mhde is a required dependency for Appout")
 endif()
 

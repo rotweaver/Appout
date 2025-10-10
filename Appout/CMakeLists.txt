@@ -40,7 +40,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC "include")
 
 
 CPMAddPackage("gh:rotweaver/mhde#master")
-target_link_libraries(${PROJECT_NAME} mhde_lib)
+target_link_libraries(${PROJECT_NAME} PUBLIC mhde_lib)
 
 if (mhde_ADDED)
     target_include_directories(${PROJECT_NAME} PUBLIC ${mhde_SOURCE_DIR}/include)

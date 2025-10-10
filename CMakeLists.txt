@@ -38,14 +38,12 @@ add_library(Appout STATIC
 	
 target_include_directories(Appout PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-
 CPMAddPackage("gh:rotweaver/mhde#master")
 target_link_libraries(Appout PUBLIC mhde_lib)
 
 if (mhde_ADDED STREQUAL YES)
     target_include_directories(Appout PUBLIC ${mhde_SOURCE_DIR}/include)
     message(STATUS "MHDE ADDED!")
-else
+else()
 	message(FATAL_ERROR "mhde is a required dependency for Appout")
 endif()
-

@@ -10,12 +10,16 @@ namespace Appout
 	{
 	private:
 
-	public:
 
-		Win32MemoryPool();
+	public:
+		bool init(size_t defaultAllocSize = 0);
+
+		~Win32MemoryPool();
+
 		void AllocateBlock() override;
 
 		friend class x86Assembler;
+		friend class Instance;
 	};
 }
 

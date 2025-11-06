@@ -39,7 +39,10 @@ MemoryPoolBase::Iterator MemoryPoolBase::end()
 {
 	return Iterator(&(*m_memoryBlocks.end()));
 }
-
+bool MemoryPoolBase::Initialized() const
+{
+	return m_initialized;
+}
 MemoryBlock& MemoryPoolBase::CurrentBlock()
 {
 	return m_memoryBlocks[m_currentBlock];

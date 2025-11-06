@@ -14,3 +14,14 @@
 #elif defined(_WIN32)
 	#define APPOUT_WIN32
 #endif
+
+namespace Appout
+{
+	enum class PrimitiveType
+	{
+		Int32,
+		Int64,
+		Float32,
+		Float64
+	};
+}

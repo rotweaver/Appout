@@ -13,6 +13,8 @@ SET(CMAKE_CXX_EXTENSIONS OFF)
 
 project(Appout VERSION 1.0.0 LANGUAGES C CXX)
 
+option(APPOUT_BUILD_TESTS "Build Test Executable" ON)
+
 # if (NOT MSVC)
 #	    message(FATAL_ERROR "Non MSVC compilers are not currently supported (but are planned)")
 # endif()
@@ -28,14 +30,17 @@ add_library(Appout STATIC
 	"src/MemoryPool/MemoryBlock.cpp"
 	"src/MemoryPool/MemoryPoolBase.cpp"
 	"src/MemoryPool/Win32MemoryPool.cpp"
-	"src/CConv.cpp"
+	
 	"src/HookData.cpp"
 	"src/HookManager.cpp"
 	"src/OpCode.cpp"
 	"src/Process.cpp"
 	"src/Trampoline.cpp"
-	)
-	
+	"src/HookInfo.cpp" 
+	"src/CallingConvention.cpp" 
+	"src/Instance.cpp" "src/Log.cpp" "src/Debug.cpp")
+
+
 target_include_directories(Appout PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 CPMAddPackage("gh:rotweaver/mhde#master")
@@ -46,4 +51,18 @@ if (mhde_ADDED STREQUAL YES)
     message(STATUS "MHDE ADDED!")
 else()
 	message(FATAL_ERROR "mhde is a required dependency for Appout")
+endif()
+
+
+if (${APPOUT_BUILD_TESTS})
+	message(STATUS "Build Appout Tests is ON")
+	project(APPOUT_TESTS VERSION 1.0.0 LANGUAGES C CXX)
+	add_executable(APPOUT_TESTS "src/Test/main.cpp" "src/Test/TestEnviroment.cpp" "src/Test/Platform/x86Test.cpp")
+
+	target_compile_definitions(APPOUT_TESTS PUBLIC -DAPPOUT_BUILD_TESTS)
+
+	target_compile_definitions(APPOUT_TESTS PUBLIC -DAPPOUT_TEST_ARCH_X86) # temp
+
+	target_link_libraries(APPOUT_TESTS PUBLIC Appout)
+	target_link_directories(APPOUT_TESTS PRIVATE $<TARGET_PROPERTY:Appout,INTERFACE_INCLUDE_DIRECTORIES>)
 endif()

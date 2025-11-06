@@ -13,6 +13,7 @@ namespace Appout
 		std::vector<MemoryBlock> m_memoryBlocks = { };
 		size_t m_defaultAllocationSize = 4096;
 		size_t m_currentBlock = 0;
+		bool m_initialized = false;
 
 	public:
 
@@ -45,6 +46,8 @@ namespace Appout
 
 		virtual void AllocateBlock() = 0;
 
+
+		bool Initialized() const;
 
 		MemoryBlock& CurrentBlock();
 

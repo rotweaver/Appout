@@ -8,8 +8,13 @@ MemoryBlock::MemoryBlock(uintptr_t baseAddress, size_t freeSpace)
 	m_baseAddress = baseAddress;
 	m_freeSpace = freeSpace;
 	m_stackPointer = baseAddress;
+	m_size = freeSpace;
 }
 
+size_t MemoryBlock::GetSize() const
+{
+	return m_size;
+}
 uintptr_t MemoryBlock::GetCurrentAddress() const
 {
 	return m_stackPointer;

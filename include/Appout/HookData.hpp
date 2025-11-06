@@ -23,6 +23,7 @@
 
 namespace Appout
 {
+	// OLD DONT USE!!!
 	uint32_t getEAX();
 	uint32_t getECX();
 
